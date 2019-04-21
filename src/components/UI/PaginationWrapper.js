@@ -1,26 +1,32 @@
-import React, { Component } from 'react'
-import {Pagination} from 'react-bootstrap';
+import React from "react";
+import { MDBPagination, MDBPageItem, MDBPageNav, MDBCol, MDBRow } from "mdbreact";
 
-export default class PaginationWrapper extends Component {
-  render() {
-    return (
-        <Pagination className="justify-content-center">
-            <Pagination.First />
-            <Pagination.Prev />
-            <Pagination.Item>{1}</Pagination.Item>
-            <Pagination.Ellipsis />
-        
-            <Pagination.Item>{10}</Pagination.Item>
-            <Pagination.Item>{11}</Pagination.Item>
-            <Pagination.Item active>{12}</Pagination.Item>
-            <Pagination.Item>{13}</Pagination.Item>
-            <Pagination.Item disabled>{14}</Pagination.Item>
-        
-            <Pagination.Ellipsis />
-            <Pagination.Item>{20}</Pagination.Item>
-            <Pagination.Next />
-            <Pagination.Last />
-      </Pagination>
+const PaginationWrapper = () => {
+  return ( 
+        <MDBPagination className="mb-2 mt-2 justify-content-center">
+          <MDBPageItem>
+            <MDBPageNav aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </MDBPageNav>
+          </MDBPageItem>
+          <MDBPageItem>
+            <MDBPageNav>
+              1
+            </MDBPageNav>
+          </MDBPageItem>
+          <MDBPageItem>
+            <MDBPageNav>2</MDBPageNav>
+          </MDBPageItem>
+          <MDBPageItem>
+            <MDBPageNav>3</MDBPageNav>
+          </MDBPageItem>
+          <MDBPageItem>
+            <MDBPageNav aria-label="Previous">
+              <span aria-hidden="true">&raquo;</span>
+            </MDBPageNav>
+          </MDBPageItem>
+        </MDBPagination>
     )
-  }
 }
+
+export default PaginationWrapper;

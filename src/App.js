@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {Switch, Route} from 'react-router-dom'
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './components/Layouts/Layout';
-import ProductList from './components/Pages/ProductList';
-import Signin from './components/Pages/Signin';
-import Signup from './components/Pages/Signup';
+import ProductListContainer from './containers/productlist/ProductListContainer';
+
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 class App extends Component {
   render() {
@@ -13,10 +13,8 @@ class App extends Component {
       <React.Fragment>
           <Layout>
             <Switch>
-              <Route exact path="/" component={ProductList} />
-              <Route exact path="/signin" component={Signin} />
-              <Route exact path="/signup" component={Signup} />
-              <Route component={ProductList} />
+              <Route exact path="/" component={ProductListContainer} />
+              <Route component={ProductListContainer} />
             </Switch>
           </Layout>
       </React.Fragment>
