@@ -16,10 +16,10 @@ export default class ProductOverlay extends Component {
   render() {
     return (
       <MDBCard
-        className="text-center mb-2 h-100 w-100"
+        className="text-center h-100 w-100"
         style={{  opacity: 0.9 }}
       >
-        <MDBCardBody>
+        <MDBCardBody className="mb-2">
           <MDBCardTitle>Gallic Cocks</MDBCardTitle>
           <div>
             <h4 className="card-price" style={{ color: "#f4425f" }}>

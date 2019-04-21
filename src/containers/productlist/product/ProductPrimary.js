@@ -11,7 +11,7 @@ export default class ProductPrimary extends Component {
             <MDBCardImage 
               style={{ width: "20rem" }}
               className="img-fluid mx-auto d-block"
-              src="https://mcdn01.gittigidiyor.net/43515/tn50/435154338_tn50_0.jpg" 
+              src="https://mcdn01.gittigidiyor.net/43354/tn24/433548254_tn24_0.jpg" 
               />
                 <MDBCardTitle>Gallic Cocks</MDBCardTitle>
                 <div>

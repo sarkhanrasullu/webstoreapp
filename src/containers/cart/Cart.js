@@ -24,7 +24,7 @@ export default class Cart extends Component {
           <MDBCardImage
             style={{ width: "10rem" }}
             className="img-fluid mx-auto d-block"
-            src="https://mcdn01.gittigidiyor.net/43515/tn50/435154338_tn50_0.jpg"
+            src="https://mcdn01.gittigidiyor.net/43354/tn24/433548254_tn24_0.jpg"
             waves
           />
           Gallic <span className="text-danger">x</span> 1

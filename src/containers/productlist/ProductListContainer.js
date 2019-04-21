@@ -15,7 +15,7 @@ export default class ProductListContainer extends Component {
                 </MDBCol>
             </MDBRow>
             <MDBRow>
-                <MDBCol xs={2} sm={4}  md={3} lg={3} xl={3} >
+                <MDBCol xs={4} sm={4}  md={4} lg={3} xl={2} >
                     <SearchContainer/>
                 </MDBCol>
                 <MDBCol>
