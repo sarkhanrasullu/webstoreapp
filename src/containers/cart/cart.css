@@ -1,4 +1,13 @@
-.card-header, .card-body{
+.card-header,.card-body{
     padding-top:0.5rem !important;
     padding-bottom:0.5rem !important;
+}
+
+.card-header{
+    display: table;
+}
+
+.card-header h6{
+    display: table-cell;
+    vertical-align: middle;
 }

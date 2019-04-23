@@ -10,20 +10,15 @@ import {
   MDBCardImage,
   MDBCardHeader
 } from "mdbreact";
+import DeleteButton from "../../components/UI/DeleteButton";
 
 export default class Cart extends Component {
   render() {
     return (
       <MDBCard bg="secondary" className="mb-2">
       <MDBCardHeader>
-      <MDBBtn
-            size="sm"
-            color="danger"
-            className="float-right badge badge-pill p-1"
-          >
-            <span>x</span>
-          </MDBBtn>
-          Gallic
+          <h6>Gallic</h6>
+          <DeleteButton/>
       </MDBCardHeader>
         <MDBCardBody>
           <MDBCardImage
