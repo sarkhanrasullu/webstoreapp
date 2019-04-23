@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { MDBTable, MDBTableBody, MDBTableHead, MDBBtn } from 'mdbreact';
 import ModalWrapper from '../../../components/UI/ModalWrapper';
 import CartItem from './CartItem'
-
+import './cartlistdetails.css'
 export default class CartListDetails extends Component {
 
   state = {
@@ -16,7 +16,7 @@ export default class CartListDetails extends Component {
   }
 
   render() {
-    return (
+    return ( 
       <React.Fragment>
         <div className="text-center">
               Total price:<span className="text-danger"> $49.93</span>
@@ -35,8 +35,8 @@ export default class CartListDetails extends Component {
             >
               <MDBTableHead>
                 <tr>
-                  <th style={{ width: "7rem" }}>Item</th>
-                  <th style={{ width: "7rem" }}>Options</th>
+                  <th >Item</th>
+                  <th >Options</th>
                   <th >Quantity</th>
                   <th >Price</th>
                   <th >Actions</th>

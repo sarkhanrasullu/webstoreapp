@@ -6,7 +6,7 @@ export default class Department extends Component {
   render() {
     return (
         <div>
-            <h4>Department</h4>
+            <h5>Department</h5>
               <MDBBtn group color="light-blue" className="mb-1" block>
                 Regional
               </MDBBtn>

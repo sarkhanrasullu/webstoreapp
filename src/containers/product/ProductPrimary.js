@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle } from 'mdbreact';
+import './product.css'
 
 export default class ProductPrimary extends Component {
   render() {
@@ -9,8 +10,7 @@ export default class ProductPrimary extends Component {
           >
           <MDBCardBody>
             <MDBCardImage 
-              style={{ width: "20rem" }}
-              className="img-fluid mx-auto d-block"
+              className="img-fluid mx-auto d-block img-primary"
               src="https://mcdn01.gittigidiyor.net/43354/tn24/433548254_tn24_0.jpg" 
               />
                 <MDBCardTitle>Gallic Cocks</MDBCardTitle>

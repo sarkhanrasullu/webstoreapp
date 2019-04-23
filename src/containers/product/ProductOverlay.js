@@ -10,7 +10,7 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem
 } from "mdbreact";
-import DropDownList from "../../../components/UI/DropDownList";
+import DropDownList from "../../components/UI/DropDownList";
 
 export default class ProductOverlay extends Component {
   render() {

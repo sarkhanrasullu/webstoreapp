@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Product from './product/Product';
+import Product from '../product/Product';
 import { MDBRow, MDBCol } from 'mdbreact';
 
 export default class ProductList extends Component {

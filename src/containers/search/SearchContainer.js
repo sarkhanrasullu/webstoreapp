@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Department from './Department';
-import Category from './Category';
-import CartList from '../cart/CartList';
+import Department from '../department/Department';
+import Category from '../category/Category';
+import CartList from '../cart/cartlist/CartList';
 import { MDBCard, MDBCardBody, MDBInput } from 'mdbreact';
 
 export default class SearchContainer extends Component {

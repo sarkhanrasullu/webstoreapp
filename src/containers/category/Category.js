@@ -6,7 +6,7 @@ export default class Category extends Component {
   render() {
     return (
         <div>
-            <h4>Category</h4>
+              <h5>Category</h5>
               <MDBBtn group color="light-blue" className="mb-1 info-color" block>
                 Regional
               </MDBBtn>

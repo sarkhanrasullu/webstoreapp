@@ -5,11 +5,11 @@ export default class ModalWrapper extends Component {
       render() {
         return (
           <MDBContainer>
-            <MDBModal isOpen={this.props.show} toggle={this.props.toggle} size="50%" backdrop={true}>
+            <MDBModal isOpen={this.props.show} toggle={this.props.toggle} size="lg" backdrop={true} >
               <MDBModalHeader toggle={this.props.toggle}>
                 {this.props.header}
               </MDBModalHeader>
-              <MDBModalBody>
+              <MDBModalBody >
                 {this.props.children}
               </MDBModalBody>
               <MDBModalFooter>
