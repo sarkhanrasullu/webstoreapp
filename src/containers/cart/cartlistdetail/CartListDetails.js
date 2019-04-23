@@ -19,7 +19,7 @@ export default class CartListDetails extends Component {
     return (
       <React.Fragment>
         <div className="text-center">
-              <span>Total price: $49.93</span>
+              Total price:<span className="text-danger"> $49.93</span>
               <MDBBtn className="badge badge-pill p-3" color="danger" onClick={this.toggle}>View Details</MDBBtn>
         </div>
         <ModalWrapper 
@@ -27,7 +27,12 @@ export default class CartListDetails extends Component {
             toggle={this.toggle} 
             okButtonLabel="Checkout" 
             noButtonLabel="Continue shopping">
-            <MDBTable scrollY maxHeight='500px' >
+            <MDBTable 
+                scrollY 
+                maxHeight='500px' 
+                small
+                striped
+            >
               <MDBTableHead>
                 <tr>
                   <th style={{ width: "7rem" }}>Item</th>
@@ -44,6 +49,10 @@ export default class CartListDetails extends Component {
                 <CartItem/>
               </MDBTableBody>
             </MDBTable>
+            <div className="text-center float-right pt-3">
+              Total price:<span className="text-danger"> $49.93</span>
+            </div>
+
         </ModalWrapper>
       </React.Fragment>
     )

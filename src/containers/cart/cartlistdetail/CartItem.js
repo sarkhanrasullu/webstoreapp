@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { MDBBtn, MDBCardImage, MDBInput } from 'mdbreact';
-import InputCounter from '../../../components/UI/inputCounter'
 
 export default class CartItem extends Component {
   render() {
