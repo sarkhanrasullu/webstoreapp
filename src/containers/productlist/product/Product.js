@@ -1,7 +1,7 @@
 import React from "react";
 import ProductPrimary from "./ProductPrimary";
 import ProductOverlay from "./ProductOverlay";
-import { MDBMask, MDBView, MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import { MDBMask, MDBView} from "mdbreact";
 
 class Product extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class Product extends React.Component {
         </MDBMask>
       </MDBView>
     );
-  }
+  } 
 }
 
 export default Product;
