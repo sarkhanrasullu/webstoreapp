@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { MDBTable, MDBTableBody, MDBTableHead, MDBBtn } from 'mdbreact';
-import ModalWrapper from '../../../components/UI/ModalWrapper';
+import ModalWrapper from '../../UI/ModalWrapper';
 import CartItem from './CartItem'
 import './cartlistdetails.css'
 export default class CartListDetails extends Component {

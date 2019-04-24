@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Cart from '../Cart';
-import CartListDetails from '../cartlistdetail/CartListDetails';
+import Cart from './Cart';
+import CartListDetails from '../cartlistdetails/CartListDetails';
 
 export default class CartList extends Component {
 

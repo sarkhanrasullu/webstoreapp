@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { MDBBtn } from 'mdbreact';
 
 export default class DeleteButton extends MDBBtn {

@@ -2,15 +2,10 @@ import React, { Component } from "react";
 import {
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBBtn,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem
+  MDBCardTitle
 } from "mdbreact";
-import DropDownList from "../../components/UI/DropDownList";
+import DropDownList from "../UI/DropDownList";
+import AddtoCartButton from "../UI/AddtoCartButton";
 
 export default class ProductOverlay extends Component {
   render() {
@@ -30,9 +25,7 @@ export default class ProductOverlay extends Component {
           <DropDownList items={["S", "XS", "L"]} />
           <DropDownList items={["White", "Red"]} />
 
-          <MDBBtn className="badge badge-pill" color="danger">
-            Add to cart
-          </MDBBtn>
+          <AddtoCartButton/>
         </MDBCardBody>
       </MDBCard>
     );

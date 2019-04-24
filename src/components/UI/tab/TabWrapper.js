@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {Tabs, Tab} from 'react-bootstrap';
 
 export default class TabWrapper extends React.Component {

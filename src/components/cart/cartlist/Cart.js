@@ -3,14 +3,12 @@ import './cart.css'
 
 import {
   MDBCard,
-  MDBCardTitle,
-  MDBBtn,
-  MDBCardBody,
+  MDBCardBody, 
   MDBCardText,
   MDBCardImage,
   MDBCardHeader
 } from "mdbreact";
-import DeleteButton from "../../components/UI/DeleteButton";
+import DeleteButton from "../../../components/UI/DeleteButton";
 
 export default class Cart extends Component {
   render() {
