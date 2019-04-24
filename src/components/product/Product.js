@@ -8,7 +8,7 @@ class Product extends React.Component {
     return (
       <MDBView hover className='overflow-visible'>
         <ProductPrimary />
-        <MDBMask className="flex-center">
+        <MDBMask className="flex-center overflow-visible">
           <ProductOverlay />
         </MDBMask>
       </MDBView>

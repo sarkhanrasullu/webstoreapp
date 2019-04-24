@@ -10,11 +10,11 @@ export default class DropDownList extends Component {
   render() {
     const {items} = this.props;
     const dropDown = (
-      <MDBDropdown>
+      <MDBDropdown size="sm">
         <MDBDropdownToggle caret color="info">
           {items[0]}
         </MDBDropdownToggle>
-        <MDBDropdownMenu color="info" basic>
+        <MDBDropdownMenu color="info" basic >
           {items.map((value, index) => {
             return <MDBDropdownItem key={index}>{value}</MDBDropdownItem>;
           })}

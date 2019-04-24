@@ -3,7 +3,7 @@ import {
 MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
 import ModalWrapper from "./ModalWrapper";
-import LoginFormWrapper from "../../containers/loginForm/LoginFormWrapper";
+import LoginFormWrapper from "../loginForm/LoginFormWrapper";
 
 class NavbarWrapper extends Component {
 state = {
