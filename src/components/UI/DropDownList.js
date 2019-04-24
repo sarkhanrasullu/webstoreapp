@@ -8,7 +8,7 @@ import {
 
 export default class DropDownList extends Component {
   render() {
-    const items = this.props.items;
+    const {items} = this.props;
     const dropDown = (
       <MDBDropdown>
         <MDBDropdownToggle caret color="info">

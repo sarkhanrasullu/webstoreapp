@@ -16,17 +16,16 @@ export default class CartListDetails extends Component {
   }
 
   render() {
-    return ( 
-      <React.Fragment>
-        <div className="text-center">
-              Total price:<span className="text-danger"> $49.93</span>
-              <MDBBtn className="badge badge-pill p-3" color="danger" onClick={this.toggle}>View Details</MDBBtn>
-        </div>
-        <ModalWrapper 
-            show={this.state.modal} 
-            toggle={this.toggle} 
-            okButtonLabel="Checkout" 
-            noButtonLabel="Continue shopping">
+
+    const modalFooter = (
+          <React.Fragment>
+                <MDBBtn color="light-blue" className="badge badge-pill p-3" onClick={this.toggle}>Continue Shopping</MDBBtn>
+                <MDBBtn color="danger" className="badge badge-pill p-3">Checkout</MDBBtn>
+          </React.Fragment>
+    );
+
+    const modalBody = (
+        <React.Fragment>
             <MDBTable 
                 scrollY 
                 maxHeight='500px' 
@@ -52,8 +51,22 @@ export default class CartListDetails extends Component {
             <div className="text-center float-right pt-3">
               Total price:<span className="text-danger"> $49.93</span>
             </div>
-
-        </ModalWrapper>
+        </React.Fragment>
+    )
+    return ( 
+      <React.Fragment>
+        <div className="text-center">
+              Total price:<span className="text-danger"> $49.93</span>
+              <MDBBtn className="badge badge-pill p-3" color="danger" onClick={this.toggle}>
+                  View Details
+              </MDBBtn>
+        </div>
+        <ModalWrapper 
+            show={this.state.modal} 
+            toggle={this.toggle} 
+            modalBody={modalBody}
+            modalFooter={modalFooter}
+            />
       </React.Fragment>
     )
   }
