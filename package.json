@@ -3,15 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "jquery": "^3.4.0",
+    "jsonwebtoken": "^8.5.1",
     "mdbreact": "^4.13.0",
+    "mysql2": "^1.6.5",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
+    "react-paypal-express-checkout": "^1.0.5",
+    "react-router": "^5.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "sequelize": "^5.7.5"
   },
   "scripts": {
     "start": "react-scripts start",

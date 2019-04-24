@@ -26,7 +26,7 @@ render() {
       <React.Fragment>
           <MDBNavbar style={{backgroundColor: '#82b1ff'}} dark expand="md">
             <MDBNavbarBrand>
-                  <MDBNavLink to="#!">
+                  <MDBNavLink to="/">
                       <strong className="white-text">SHOPMATE</strong>
                   </MDBNavLink>
             </MDBNavbarBrand>

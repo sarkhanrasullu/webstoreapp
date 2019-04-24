@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Cart from './Cart';
-import CartListDetails from '../cartlistdetails/CartListDetails';
+import CartListDetailsButton from '../cartlistdetails/CartListDetailsButton';
 
 export default class CartList extends Component {
 
@@ -14,7 +14,7 @@ export default class CartList extends Component {
             <Cart/>
             <Cart/>
           </div>
-          <CartListDetails/>
+          <CartListDetailsButton/>
         </div>
         
     )

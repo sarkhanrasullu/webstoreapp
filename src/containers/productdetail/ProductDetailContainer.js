@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBCardBody, MDBCard } from 'mdbreact';
-import ProductImages from './productimages/ProductImages';
-import ProductProperties from './productproperties/ProductProperties';
+import ProductImages from '../../components/productdetail/productimages/ProductImages';
+import ProductProperties from '../../components/productdetail/productproperties/ProductProperties';
 
-export default class CheckoutWrapper extends Component {
+export default class ProductDetailContainer extends Component {
   render() {
     return (
         <MDBContainer fluid={true}>
