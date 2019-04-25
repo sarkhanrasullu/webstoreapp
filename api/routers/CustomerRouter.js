@@ -1,20 +1,11 @@
 const express = require("express")
-const app = express()
-const cors = require('cors')
 const jwt = require("jsonwebtoken")
-const bcrypt = require('bcrypt')
-const bodyParser = require('body-parser');
-const middleware = require('../middleware');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
+const Customer = require("../models/Customer")
+const customerRouter = express.Router();
 
 process.env.SECRET_KEY = 'secret'
 
-const Customer = require("../models/Customer")
-
-app.post('/register', (req, res) => {
+customerRouter.post('/register', (req, res) => {
     const today = new Date()
     const userData = {
         first_name: req.body.first_name,
@@ -50,7 +41,7 @@ app.post('/register', (req, res) => {
         })
 })
 
-app.post('/api/customers/login', (req, res) => {
+customerRouter.post('/login', (req, res) => {
     Customer.findOne({
         where: {
             email: req.body.email
@@ -72,7 +63,5 @@ app.post('/api/customers/login', (req, res) => {
             res.status(400).json({ error: err })
         })
 })
-const PORT = 5000;
-app.listen(PORT);
 
-module.exports = app
+module.exports = customerRouter

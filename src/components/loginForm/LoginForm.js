@@ -1,7 +1,6 @@
 import React from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 import CustomerService from "../../services/CustomerService";
-import { withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
 
@@ -53,4 +52,4 @@ class LoginForm extends React.Component {
     }
 };
 
-export default withRouter(LoginForm);
+export default LoginForm;
