@@ -1,4 +1,3 @@
-const customerRouter = require('./routers/CustomerRouter')
 const express = require("express")
 const app = express()
 const cors = require('cors')
@@ -8,7 +7,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 
 //registering routers
-app.use('/customers',customerRouter);
+app.use('/customers',require('./routers/CustomerRouter'));
+app.use('/departments',require('./routers/DepartmentRouter'));
+app.use('/categories',require('./routers/CategoryRouter'));
  
 const PORT = 5000;
 app.listen(PORT);
