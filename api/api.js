@@ -10,6 +10,7 @@ app.use(cors())
 app.use('/customers',require('./routers/CustomerRouter'));
 app.use('/departments',require('./routers/DepartmentRouter'));
 app.use('/categories',require('./routers/CategoryRouter'));
+app.use('/products',require('./routers/ProductRouter'));
  
 const PORT = 5000;
 app.listen(PORT);

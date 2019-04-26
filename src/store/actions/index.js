@@ -7,3 +7,8 @@ export {
 export {
     loadDepartments
 } from './departments'
+
+export {
+    loadProductsInCategory,
+    loadProductsInDepartment
+} from './products'

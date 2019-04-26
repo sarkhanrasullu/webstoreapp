@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { MDBBtn} from 'mdbreact';
-import DepartmentService from '../../services/DepartmentService';
 import * as actions from '../../store/actions/index';
 import {connect} from 'react-redux';
 
@@ -44,7 +43,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onDepartmentSelect: (departmentId) => dispatch(actions.loadCategories(departmentId)),
+    onDepartmentSelect: (departmentId) => {
+      dispatch(actions.loadCategories(departmentId));
+      dispatch(actions.loadProductsInDepartment(departmentId));
+    },
     onLoad: () => dispatch(actions.loadDepartments()),
   }
 }
