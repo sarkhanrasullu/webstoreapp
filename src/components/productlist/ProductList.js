@@ -6,20 +6,14 @@ import {connect} from 'react-redux';
 
 class ProductList extends Component {
 
-  componentWillMount() {
-   
-  }
   render() {
     return ( 
       <MDBRow>
                 {
                  this.props.products.map((p, index)=> {
-                  console.log("ProductList="+JSON.stringify(p))
-
-                  console.log(p)
                   return (
-                          <MDBCol xs="7" sm="7"  md="5" lg="4" xl="3">
-                              <Product product={p}/>
+                          <MDBCol key={index} xs="7" sm="7"  md="5" lg="4" xl="4">
+                              <Product product={p} />
                           </MDBCol>
                         )
                     })
@@ -30,8 +24,6 @@ class ProductList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.products.products)
-
   return {
     products: state.products.products
   }

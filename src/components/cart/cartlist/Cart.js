@@ -20,7 +20,7 @@ export default class Cart extends Component {
       </MDBCardHeader>
         <MDBCardBody>
           <MDBCardImage
-            style={{ width: "5rem" }}
+            style={{width: "5rem"}}
             className="img-fluid mx-auto d-block"
             src="https://mcdn01.gittigidiyor.net/43354/tn24/433548254_tn24_0.jpg"
             waves

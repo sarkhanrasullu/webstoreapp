@@ -4,7 +4,7 @@ import './product.css'
 
 export default class ProductPrimary extends Component {
   render() {
-    const {name, price, discounted_price} = this.props.product;
+    const {name, price, discounted_price, thumbnail} = this.props.product;
     return (
         <MDBCard  
         className={"text-center mb-2"} 
@@ -12,7 +12,7 @@ export default class ProductPrimary extends Component {
           <MDBCardBody>
             <MDBCardImage 
               className="img-fluid mx-auto d-block img-primary"
-              src="https://mcdn01.gittigidiyor.net/43354/tn24/433548254_tn24_0.jpg" 
+              src={"/product_images/"+thumbnail}
               />
                 <MDBCardTitle>{name}</MDBCardTitle>
                 <div>
