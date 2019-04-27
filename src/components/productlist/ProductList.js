@@ -5,6 +5,10 @@ import * as actions from '../../store/actions/index';
 import {connect} from 'react-redux';
 
 class ProductList extends Component {
+
+  componentWillMount() {
+   
+  }
   render() {
     return ( 
       <MDBRow>
@@ -33,4 +37,13 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ProductList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadProductsSearch: (department_id) => {
+      dispatch(actions.loadProductsInDepartment(department_id));
+    },
+    onLoad: () => dispatch(actions.loadDepartments()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

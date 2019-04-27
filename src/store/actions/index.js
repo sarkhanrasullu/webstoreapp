@@ -10,5 +10,6 @@ export {
 
 export {
     loadProductsInCategory,
-    loadProductsInDepartment
+    loadProductsInDepartment,
+    loadProductsSearch
 } from './products'
