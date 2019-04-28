@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Product from '../product/Product';
 import { MDBRow, MDBCol } from 'mdbreact';
-import * as actions from '../../store/actions/index';
 import {connect} from 'react-redux';
 
 class ProductList extends Component {
@@ -24,6 +23,7 @@ class ProductList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  
   return {
     products: state.products.products
   }

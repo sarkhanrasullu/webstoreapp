@@ -13,14 +13,9 @@ export default class ProductOverlay extends Component {
     const {name, price, discounted_price, attributeValues} = this.props.product;
     
     let dropDownList = [];
-    console.log(this.props.product);
-    console.log(this.props.product.attributeValues);
     if(this.props.product.attributeValues){
-     
-      attributeValues.map((value, index)=>{
-        dropDownList.push(
-          <DropDownList attributeValueList={value} />
-        )
+      dropDownList =  attributeValues.map((value, index)=>{
+          return <DropDownList key={index} attributeValueList={value} />
       })
   }
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { MDBContainer, MDBCard, MDBCardBody, MDBRow} from 'mdbreact';
+import { MDBContainer, MDBCard, MDBCardBody} from 'mdbreact';
 import CartListDetails from '../../components/cart/cartlistdetails/CartListDetails';
 import PayPalButton from '../../components/checkout/PayPalButton';
 

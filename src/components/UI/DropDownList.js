@@ -9,7 +9,6 @@ import {
 export default class DropDownList extends Component {
   render() {
     const {attributeValueList} = this.props;
-      console.log(attributeValueList);
     const dropDown = (
       <MDBDropdown size="sm">
         <MDBDropdownToggle caret color="info">

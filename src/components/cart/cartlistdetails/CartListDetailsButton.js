@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {  MDBBtn, NavItem, MDBNavLink } from 'mdbreact';
+import {  MDBBtn, MDBNavLink } from 'mdbreact';
 import ModalWrapper from '../../UI/ModalWrapper';
 import './cartlistdetails.css'
 import CartListDetails from './CartListDetails';

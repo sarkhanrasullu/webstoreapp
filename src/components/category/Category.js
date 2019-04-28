@@ -16,9 +16,8 @@ class Category extends Component {
       title = <h5>Categories</h5>
     }
 
-    let body = [];
-    categories.map((value,index)=>{
-      body.push( 
+    let body =categories.map((value,index)=>{
+      return ( 
            <MDBBtn key={value.category_id} color="light-blue" className="mb-1" block
            onClick={()=>this.props.onCategorySelect(value.category_id)}>
                {value.name}
