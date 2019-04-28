@@ -3,16 +3,19 @@ import { MDBPagination, MDBPageItem, MDBPageNav } from "mdbreact";
 import { connect } from "react-redux";
 
 class PaginationWrapper extends Component {
-
+ 
     render(){
-      let {count} = this.props;
+      let {count, currentPage} = this.props;
       let rows = [];
-      let index = 0;
+      let pageIndex = 1;
       for(let i=0; i<count; i+=10){
+          const indexParam = pageIndex;
           rows.push(
-              <MDBPageItem key={i}>
+              <MDBPageItem key={i} active={pageIndex===currentPage} onClick={()=> {
+                  this.props.loadFunc(indexParam); 
+              } }>
                 <MDBPageNav>
-                  {++index}
+                  {pageIndex++}
                 </MDBPageNav>
               </MDBPageItem>
           )
@@ -37,11 +40,12 @@ class PaginationWrapper extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.products);
+  console.log(state.products)
   return {
-    count: state.products.count
+    count: state.products.count,
+    currentPage: state.products.currentPage,
+    loadFunc: state.products.loadFunc
   }
 }
-
 
 export default connect(mapStateToProps)(PaginationWrapper);

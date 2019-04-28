@@ -11,7 +11,6 @@ import AddtoCartButton from "../UI/AddtoCartButton";
 export default class ProductOverlay extends Component {
   render() {
     const {name, price, discounted_price} = this.props.product;
-    console.log("P="+JSON.stringify(this.props.product));
     return (
       <MDBCard
         className="text-center h-100 w-100"

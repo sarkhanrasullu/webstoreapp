@@ -11,19 +11,24 @@ class Category extends Component {
 
   render() {
     let {categories} = this.props;
+    let title = null;
+    if(categories && categories.length>0){
+      title = <h5>Categories</h5>
+    }
+
+    let body = [];
+    categories.map((value,index)=>{
+      body.push( 
+           <MDBBtn key={value.category_id} color="light-blue" className="mb-1" block
+           onClick={()=>this.props.onCategorySelect(value.category_id)}>
+               {value.name}
+           </MDBBtn> 
+      )
+   })
     return (
         <div>
-            <h5>Categories</h5>
-            {
-              categories.map((value,index)=>{
-                 return( 
-                      <MDBBtn key={value.category_id} color="light-blue" className="mb-1" block
-                      onClick={()=>this.props.onCategorySelect(value.category_id)}>
-                          {value.name}
-                      </MDBBtn> 
-                 )
-              })
-            }
+            { title }
+            { body }
         </div>
     )
   }

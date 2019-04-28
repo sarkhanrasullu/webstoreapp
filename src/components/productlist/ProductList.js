@@ -28,14 +28,6 @@ const mapStateToProps = (state) => {
     products: state.products.products
   }
 }
+ 
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadProductsSearch: (department_id) => {
-      dispatch(actions.loadProductsInDepartment(department_id));
-    },
-    onLoad: () => dispatch(actions.loadDepartments()),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
+export default connect(mapStateToProps)(ProductList);

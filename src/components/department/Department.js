@@ -11,7 +11,9 @@ class Department extends Component {
   
   render() {
     let {departments} = this.props;
-
+    if(departments && departments[0]){
+      this.props.loadProductsInDepartment(departments[0].department_id);
+    }
     return (
         <div>
             <h5>Departments</h5>
@@ -48,6 +50,9 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.loadProductsInDepartment(departmentId));
     },
     onLoad: () => dispatch(actions.loadDepartments()),
+    loadProductsInDepartment: (department_id) => {
+      dispatch(actions.loadProductsInDepartment(department_id));
+    },
   }
 }
 

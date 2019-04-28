@@ -8,7 +8,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case actionTypes.SET_DEPARTMENTS:
-            console.log(action.departments);
             return {
                 ...state,
                 departments: action.departments,

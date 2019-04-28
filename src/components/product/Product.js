@@ -5,7 +5,6 @@ import { MDBMask, MDBView} from "mdbreact";
 
 class Product extends React.Component {
   render() {
-    console.log("Product="+JSON.stringify(this.props.product));
     return (
       <MDBView hover className='overflow-visible'>
         <ProductPrimary product={this.props.product}/>
