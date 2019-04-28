@@ -40,7 +40,6 @@ class PaginationWrapper extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.products)
   return {
     count: state.products.count,
     currentPage: state.products.currentPage,

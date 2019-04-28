@@ -2,6 +2,36 @@ import *  as actionTypes from './actionTypes';
 import axios from '../../services/CommonAxios'
 
 export const setProducts = (productsWrapper, currentPage, loadFunc) => {
+
+    const products = productsWrapper.raws;
+    products.forEach(p => {
+        axios.get('/attributes/inProduct/'+p.product_id)
+        .then(resp=>{
+             const attributeValues = resp.data;
+             const temp = {};
+
+             const set = new Set(attributeValues);
+             set.forEach(av=>{
+                const attrName = av["attribute_name"];
+                temp[attrName] = [];
+             })
+
+             attributeValues.forEach(av=>{
+                const attrName = av["attribute_name"];
+                temp[attrName].push(av);
+             })
+
+             var result = Object.keys(temp).map(function(key) {
+                 var r = {key: key, attributeValues: temp[key]};
+                 
+                return r;
+              });
+             p.attributeValues = result;
+        })
+        .catch(error=>{
+             
+        }); 
+    });
     return {
         type: actionTypes.SET_PRODUCTS,
         products: productsWrapper.raws,

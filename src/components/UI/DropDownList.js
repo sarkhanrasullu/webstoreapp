@@ -8,15 +8,16 @@ import {
 
 export default class DropDownList extends Component {
   render() {
-    const {items} = this.props;
+    const {attributeValueList} = this.props;
+      console.log(attributeValueList);
     const dropDown = (
       <MDBDropdown size="sm">
         <MDBDropdownToggle caret color="info">
-          {items[0]}
+          {attributeValueList.key}
         </MDBDropdownToggle>
         <MDBDropdownMenu color="info" basic >
-          {items.map((value, index) => {
-            return <MDBDropdownItem key={index}>{value}</MDBDropdownItem>;
+          {attributeValueList.attributeValues.map((av, index) => {
+            return <MDBDropdownItem key={av.attribute_value_id}>{av.attribute_value}</MDBDropdownItem>;
           })}
         </MDBDropdownMenu>
       </MDBDropdown>
