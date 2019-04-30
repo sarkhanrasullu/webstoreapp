@@ -16,7 +16,7 @@ class App extends Component {
           <Layout> 
                 <Switch>
                   <Route exact path="/" component={ProductListContainer} />
-                  <Route exact path="/product" component={ProductDetailContainer} />
+                  <Route exact path="/product/:product_id" component={ProductDetailContainer} />
                   <Route exact path="/checkout" component={CheckoutContainer} />
                   <Route component={ProductListContainer} />
                 </Switch>

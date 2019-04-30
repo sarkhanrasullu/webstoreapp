@@ -10,7 +10,7 @@ import AddtoCartButton from "../UI/AddtoCartButton";
 
 export default class ProductOverlay extends Component {
   render() {
-    const {name, price, discounted_price, attributeValues} = this.props.product;
+    const {product_id, name, price, discounted_price, attributeValues} = this.props.product;
     
     let dropDownList = [];
     if(this.props.product.attributeValues){
@@ -25,7 +25,7 @@ export default class ProductOverlay extends Component {
       >
         <MDBCardBody className="mb-2">
           <MDBCardTitle>{name}</MDBCardTitle>
-            <MDBNavLink to="product">
+            <MDBNavLink to={"product/"+product_id}>
               <p className="card-price h4" style={{ color: "#f4425f" }}>
                 <strong>{price}</strong>
               </p>

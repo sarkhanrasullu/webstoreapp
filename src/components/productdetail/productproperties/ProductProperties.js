@@ -1,13 +1,75 @@
 import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBInput, MDBBtn } from 'mdbreact';
 import AddtoCartButton from '../../UI/AddtoCartButton';
+import { withRouter } from 'react-router-dom';
+import commonAxios from '../../../services/CommonAxios';
+import * as actions from '../../../store/actions/index';
+import {connect} from 'react-redux';
 
-export default class ProductProperties extends Component {
-    
+ class ProductProperties extends Component {
+
+  state = {
+    attribute_values_list: []
+  }
+  componentDidMount(){
+      const {product_id} = this.props.match.params;
+
+      commonAxios.get('/attributes/inProduct/'+product_id)
+                        .then(resp=>{
+                            const attributeValues = resp.data;
+                            const temp = {};
+
+                            const set = new Set(attributeValues);
+                            set.forEach(av=>{
+                                const attrName = av["attribute_name"];
+                                temp[attrName] = [];
+                            })
+
+                            attributeValues.forEach(av=>{
+                                const attrName = av["attribute_name"];
+                                temp[attrName].push(av);
+                            })
+
+                            var result = Object.keys(temp).map(function(key) {
+                                var r = {key: key, attributeValues: temp[key]};
+                                
+                                return r;
+                            });
+                            this.setState({attribute_values_list:result});
+                        })
+                        .catch(error=>{
+                            
+                        }); 
+  }
+
   render() {
 
-    const productSize = ['S','M','L','XL','XXL'];
-    const productColor = ['White','Black','Red','Orange','Green'];
+    let attributeButtons = [];
+    const {attribute_values_list} = this.state;
+    
+    if(attribute_values_list){
+      console.log("attribute values="+JSON.stringify(attribute_values_list));
+      attributeButtons =  attribute_values_list.map((attributeValuesWrapper, index)=>{
+          const {attributeValues} = attributeValuesWrapper;
+          const buttons = attributeValues.map((av, index) => {
+            return (
+                    <MDBBtn key={av.attribute_value_id} color="light z-depth-0">
+                      {av.attribute_value}
+                    </MDBBtn>
+                  )
+          })
+
+          const result = (
+            <MDBRow>
+                <div>
+                  <p className="h5">{attributeValuesWrapper.key}</p>
+                  {buttons}
+                </div>
+            </MDBRow>
+          );
+         
+          return result;
+      })
 
     return (
       <MDBContainer>
@@ -31,35 +93,7 @@ export default class ProductProperties extends Component {
             </div>
           </MDBRow>
 
-          <MDBRow>
-            <div>
-                <p className="h5">Size</p>
-                {
-                    productSize.map((value, index)=>{
-                            return (
-                                <MDBBtn key={index} color="light z-depth-0">
-                                    {value}
-                                </MDBBtn>
-                            )
-                    })
-                }
-            </div>
-          </MDBRow>
-
-          <MDBRow>
-            <div>
-                <p className="h5">Color</p>
-                {
-                    productColor.map((value, index)=>{
-                            return (
-                                <MDBBtn key={index} color="light z-depth-0">
-                                    {value}
-                                </MDBBtn>
-                            )
-                    })
-                }
-            </div>
-          </MDBRow>
+          {attributeButtons}
           <MDBRow>
                 <AddtoCartButton/>
           </MDBRow>
@@ -67,3 +101,26 @@ export default class ProductProperties extends Component {
     )
   }
 }
+ }
+
+
+
+// const mapStateToProps = (state) => {
+//   return {
+//       departments: state.departments.departments
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onDepartmentSelect: (departmentId) => {
+//       dispatch(actions.loadCategories(departmentId));
+//       dispatch(actions.loadProductsInDepartment(departmentId));
+//     },
+//     onLoad: () => dispatch(actions.loadDepartments()),
+//     loadProductsInDepartment: (department_id) => {
+//       dispatch(actions.loadProductsInDepartment(department_id));
+//     },
+//   }
+// }
+export default withRouter(ProductProperties);
