@@ -129,4 +129,33 @@ router.get('/inCategory/:category_id', (req, res) => {
         res.send('error: '+err)
     });
 })
+
+
+router.get('/:product_id', (req, res) => {
+    let {product_id} = req.params;
+
+    const get_count_for_search = db.sequelize.query("call tshirtshop.catalog_get_product_info(:product_id)", 
+                {
+                    replacements: { 
+                        product_id: product_id
+                    },
+                    type: db.sequelize.QueryTypes.RAW
+                }
+        ) 
+ 
+    get_count_for_search
+    .then(data => {
+        if(data && data[0])
+        res.send(data[0]);
+        else res.send({
+            "code": "USR_02",
+            "message": "The field example is empty.",
+            "field": "example"
+          })
+    }).catch(err => {
+        console.log(err);
+        res.send('error: '+err)
+    });
+})
+
 module.exports = router

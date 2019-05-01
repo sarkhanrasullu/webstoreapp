@@ -17,7 +17,8 @@ export default class ProductOverlay extends Component {
       dropDownList =  attributeValues.map((value, index)=>{
           return <DropDownList key={index} attributeValueList={value} />
       })
-  }
+    }
+    
     return (
       <MDBCard
         className="text-center h-100 w-100"
