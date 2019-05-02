@@ -9,11 +9,48 @@ module.exports = db.sequelize.define(
             primaryKey: true,
             autoIncrement: true
         },
-        email: {
+        name: {
             type: Sequelize.STRING
         },
+        email: {
+            type: Sequelize.STRING,
+            validate: {
+                isEmail: {
+                    msg: JSON.stringify({
+                        "error": {
+                          "status": 400,
+                          "code": "USR_03",
+                          "message": "The email is invalid.",
+                          "field": "email"
+                        }
+                      })
+                },
+                notEmpty: {
+                    msg: JSON.stringify({
+                        "error": {
+                          "status": 400,
+                          "code": "USR_03",
+                          "message": "The email is invalid.",
+                          "field": "email"
+                        }
+                      })
+                }
+            }
+        },
         password: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            validate: {
+                notEmpty: {
+                    msg: JSON.stringify({
+                        "error": {
+                          "status": 400,
+                          "code": "USR_03",
+                          "message": "Password can not be empty.",
+                          "field": "password"
+                        }
+                      })
+                }
+            }
         }
     },
     {

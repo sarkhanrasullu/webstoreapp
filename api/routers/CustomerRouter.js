@@ -5,14 +5,14 @@ const customerRouter = express.Router();
 
 process.env.SECRET_KEY = 'secret'
 
-customerRouter.post('/register', (req, res) => {
-    const today = new Date()
+customerRouter.post('/', (req, res) => {
+    console.log(JSON.stringify(req.body));
+    // console.log(JSON.stringify(req.params));
     const userData = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        created: today
+        shipping_region_id : 1,
     }
 
     Customer.findOne({
@@ -22,22 +22,31 @@ customerRouter.post('/register', (req, res) => {
     })
         .then(user => {
             if (!user) {
-                bcrypt.hash(req.body.password, 10, (err, hash) => {
-                    userData.password = hash
                     Customer.create(userData)
                         .then(user => {
                             res.json({ status: user.email + ' registered' })
                         })
                         .catch(err => {
-                            res.send('error: ' + err)
+                            console.log(JSON.stringify(err));
+                            const errors = err.errors;
+                            
+                            res.status(500).json(JSON.parse(errors[0].message))
                         })
-                })
             } else {
-                res.json({ error: "User already exists" })
+                res.status(409).json(
+                    {
+                        "error": {
+                            "status": 409,
+                            "code": "USR_03",
+                            "message": "User already exists",
+                            "field": "email"
+                          }
+                    }
+                )
             }
         })
         .catch(err => {
-            res.send('error: ' + err)
+            res.status(500).json({error: err})
         })
 })
 
