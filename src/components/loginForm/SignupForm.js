@@ -10,17 +10,6 @@ class SignupForm extends Component {
     password: null
   }
 
-  stringify = (errors)=>{
-    let msg =  errors.map((val)=>{
-      return (<p>{val.message}</p>);
-    })
-
-    return msg;
-
-  }
-
-
-
   signUp = () => {
       customAxios.post('/customers', 
       querystring.stringify(this.state))

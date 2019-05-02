@@ -51,6 +51,9 @@ module.exports = db.sequelize.define(
                       })
                 }
             }
+        },
+        shipping_region_id :{
+            type: Sequelize.INTEGER
         }
     },
     {

@@ -2,12 +2,11 @@ const express = require("express")
 const jwt = require("jsonwebtoken")
 const Customer = require("../models/Customer")
 const customerRouter = express.Router();
+const userLoginResponseModel = require('../responsemodels/LoginResponse')
 
 process.env.SECRET_KEY = 'secret'
 
 customerRouter.post('/', (req, res) => {
-    console.log(JSON.stringify(req.body));
-    // console.log(JSON.stringify(req.params));
     const userData = {
         name: req.body.name,
         email: req.body.email,
@@ -62,10 +61,35 @@ customerRouter.post('/login', (req, res) => {
                     let token = jwt.sign(customer.dataValues, process.env.SECRET_KEY, {
                         expiresIn: 1440
                     })
-                    res.send(token);
+                    userLoginResponseModel.customer.schema.customer_id = customer.customer_id;
+                    userLoginResponseModel.customer.schema.name = customer.name;
+                    userLoginResponseModel.customer.schema.email = customer.email;
+                    userLoginResponseModel.customer.schema.shipping_region_id = customer.shipping_region_id;
+                    userLoginResponseModel.accessToken ="Bearer "+ token; 
+
+                    userLoginResponseModel.expires_in  = 1440;
+                    res.send(userLoginResponseModel);
+                }else{
+                    res.status(400).send({
+                        "error": {
+                            "status": 400,
+                            "code": "USR_03",
+                            "message": "Password is incorrect",
+                            "field": "password"
+                          }
+                    })
                 }
             } else {
-                res.status(400).json({ error: 'User does not exist' });
+                res.status(400).json(
+                    {
+                        "error": {
+                            "status": 400,
+                            "code": "USR_03",
+                            "message": "User does not exist",
+                            "field": "email"
+                          }
+                    }
+                );
             }
         })
         .catch(err => {
