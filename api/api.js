@@ -1,3 +1,5 @@
+require('dotenv/config')
+
 const express = require("express")
 const app = express()
 const cors = require('cors')
@@ -13,7 +15,7 @@ app.use('/categories',require('./routers/CategoryRouter'));
 app.use('/products',require('./routers/ProductRouter'));
 app.use('/attributes',require('./routers/AttributeRouter'));
  
-const PORT = 5000;
-app.listen(PORT);
+// const PORT = 80;
+app.listen(process.env.PORT);
 
 module.exports = app
