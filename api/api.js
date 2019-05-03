@@ -14,6 +14,7 @@ app.use('/departments',require('./routers/DepartmentRouter'));
 app.use('/categories',require('./routers/CategoryRouter'));
 app.use('/products',require('./routers/ProductRouter'));
 app.use('/attributes',require('./routers/AttributeRouter'));
+app.use('/test',(req,resp)=>{resp.send("test")});
  
 // const PORT = 80;
 app.listen(process.env.PORT);

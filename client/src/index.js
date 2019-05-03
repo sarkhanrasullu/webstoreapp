@@ -11,6 +11,9 @@ import allReducers from './store/reducers/index'
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
+
+require('dotenv/config');
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
 
 const store = createStore(allReducers, composeEnhancers(

@@ -3,7 +3,7 @@ const db = require("../db")
 const router = express.Router();  
 
 router.get('/inProduct/:product_id', (req, res) => {
-    db.sequelize.query("call tshirtshop.catalog_get_product_attributes(:product_id)", 
+    db.sequelize.query("call catalog_get_product_attributes(:product_id)", 
     {
         replacements: { 
             product_id: req.params.product_id

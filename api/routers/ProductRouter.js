@@ -14,7 +14,7 @@ router.get('/search', (req, res) => {//?query_string=string&all_words=onoff&page
     page = parseInt(page)-1;
     page = page * limit;
 
-    const get_count_for_search = db.sequelize.query("call tshirtshop.catalog_count_search_result(:query_string, :all_words)", 
+    const get_count_for_search = db.sequelize.query("call catalog_count_search_result(:query_string, :all_words)", 
                 {
                     replacements: { 
                         query_string: query_string,
@@ -24,7 +24,7 @@ router.get('/search', (req, res) => {//?query_string=string&all_words=onoff&page
                 }
         ) 
 
-    const get_products_search = db.sequelize.query("call tshirtshop.catalog_search(:query_string, :all_words, :desc_length, :limit, :page)", 
+    const get_products_search = db.sequelize.query("call catalog_search(:query_string, :all_words, :desc_length, :limit, :page)", 
     {
         replacements: { 
             desc_length: description_length,
@@ -55,7 +55,7 @@ router.get('/inDepartment/:department_id', (req, res) => {
     page = page===undefined?1:parseInt(page);
     limit = limit===undefined?10:parseInt(limit);
     description_length = description_length===undefined?100:parseInt(description_length);
-    const get_count_for_search = db.sequelize.query("call tshirtshop.catalog_count_products_on_department(:department_id)", 
+    const get_count_for_search = db.sequelize.query("call catalog_count_products_on_department(:department_id)", 
                 {
                     replacements: { 
                         department_id: req.params.department_id
@@ -95,7 +95,7 @@ router.get('/inCategory/:category_id', (req, res) => {
     page = page===undefined?1:parseInt(page);
     limit = limit===undefined?10:parseInt(limit);
     description_length = description_length===undefined?100:parseInt(description_length);
-    const get_count_for_search = db.sequelize.query("call tshirtshop.catalog_count_products_in_category(:category_id)", 
+    const get_count_for_search = db.sequelize.query("call catalog_count_products_in_category(:category_id)", 
                 {
                     replacements: { 
                         category_id: req.params.category_id
@@ -104,7 +104,7 @@ router.get('/inCategory/:category_id', (req, res) => {
                 }
     )
 
-    const get_products_in_category = db.sequelize.query("call tshirtshop.catalog_get_products_in_category(:category_id, :description_length, :limit, :page)", 
+    const get_products_in_category = db.sequelize.query("call catalog_get_products_in_category(:category_id, :description_length, :limit, :page)", 
     {
         replacements: { 
             category_id: req.params.category_id,
@@ -134,7 +134,7 @@ router.get('/inCategory/:category_id', (req, res) => {
 router.get('/:product_id', (req, res) => {
     let {product_id} = req.params;
 
-    const get_count_for_search = db.sequelize.query("call tshirtshop.catalog_get_product_info(:product_id)", 
+    const get_count_for_search = db.sequelize.query("call catalog_get_product_info(:product_id)", 
                 {
                     replacements: { 
                         product_id: product_id
