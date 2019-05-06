@@ -26,7 +26,7 @@ class CartList extends Component {
     let totalPrice = 0;
     if(carts)
       carts.map((cart, index) => {
-        totalPrice+= parseFloat(cart.subtotal);
+        totalPrice+= parseFloat(cart.subtotal );
         cartList.push( <Cart key={index} cart={cart}/>);
       })
 

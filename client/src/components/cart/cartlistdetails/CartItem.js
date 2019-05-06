@@ -3,27 +3,27 @@ import { MDBBtn, MDBCardImage, MDBInput } from 'mdbreact';
 
 export default class CartItem extends Component {
   render() {
+    const {cart} = this.props;
     return (
       <tr>
         <td>
-          <MDBCardImage
+          {/* <MDBCardImage
               className="img-fluid mx-auto d-block"
               src="https://mcdn01.gittigidiyor.net/43354/tn24/433548254_tn24_0.jpg"
               waves
               style={{width:'5rem'}}
-            />
-            <span>Gallic Cock</span>
+            /> */}
+            <p>{cart.name}</p>
         </td>
         <td>
-          <p>Size: S</p>
-          <p>Color: White</p>
+          <p> {cart.attributes}</p>
         </td>
         <td>
           <div className="inputWrapper">
-            <MDBInput type="number" />
+            <MDBInput type="number" valueDefault={cart.quantity} />
           </div>
         </td>
-        <td>16.99$</td>
+        <td>{cart.subtotal}$</td>
         <td>
             <MDBBtn
               size="sm"
