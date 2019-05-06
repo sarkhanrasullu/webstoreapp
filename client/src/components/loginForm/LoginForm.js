@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
-import commonAxios from '../../services/CommonAxios';
-const querystring = require('querystring');
+import * as actions from '../../store/actions/index';
+import {connect} from 'react-redux';
 
 class LoginForm extends React.Component {
 
@@ -16,17 +16,7 @@ class LoginForm extends React.Component {
           email: this.state.email,
           password: this.state.password
       }
-
-      commonAxios 
-        .post('customers/login', querystring.stringify(user))
-        .then(res => {
-          this.setState({errorMsg: null});
-            localStorage.setItem('usertoken', res.data)
-            // this.props.history.push(`/`)
-        })
-        .catch(err => {
-          this.setState({errorMsg: err.response.data.error.message});
-        })
+      this.props.login(user);
   }
 
   render(){
@@ -51,14 +41,26 @@ class LoginForm extends React.Component {
                     validate
                     getValue={value=> this.setState({password: value})}
                   />
-                  <span className="text-danger">{this.state.errorMsg}</span>
+                  <span className="text-danger">{this.props.errorMsg}</span>
                 </div>
                 <div className="text-center">
-                  <MDBBtn color="light-blue" onClick={this.login} >Login</MDBBtn>
+                  <MDBBtn color="light-blue" onClick={this.login}>Login</MDBBtn>
                 </div>
             </form>
       );
     }
 };
 
-export default LoginForm;
+const mapStateToProps = (state) => {
+  return {
+    errorMsg: state.customers.errorMsg
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (user) => dispatch(actions.login(user))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

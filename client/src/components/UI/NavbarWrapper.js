@@ -4,8 +4,11 @@ MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggle
 } from "mdbreact";
 import ModalWrapper from "./ModalWrapper";
 import LoginFormWrapper from "../loginForm/LoginFormWrapper";
+import * as actions from '../../store/actions/index';
+import {connect} from 'react-redux';
 
 class NavbarWrapper extends Component {
+
 state = {
   isOpen: false,
   loginModal: false
@@ -21,7 +24,23 @@ toggleLogin = () => {
   });
 }
 
+componentDidUpdate(){
+  if(this.props.user && this.state.loginModal){
+    this.setState({loginModal:false});
+  }
+}
+
 render() {
+  let l =  null;
+
+  if(this.props.user) {
+      l =   <MDBNavLink to="#logout" onClick={this.props.logout}>
+                {"Logout ("+this.props.user.customer.schema.email+")"}
+            </MDBNavLink>;
+  }else {
+    l = <MDBNavLink to="#login" onClick={this.toggleLogin}>LOGIN/SIGNUP</MDBNavLink>;
+  }
+  
   return (
       <React.Fragment>
           <MDBNavbar style={{backgroundColor: '#82b1ff'}} dark expand="md">
@@ -34,7 +53,7 @@ render() {
             <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
               <MDBNavbarNav right>
                 <MDBNavItem>
-                  <MDBNavLink to="#login" onClick={this.toggleLogin}>LOGIN/SIGNUP</MDBNavLink>
+                  {l}
                 </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
@@ -50,4 +69,17 @@ render() {
   }
 }
 
-export default NavbarWrapper;
+const mapStateToProps = (state) => {
+  return {
+    user: state.customers.user
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(actions.logout())
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarWrapper);

@@ -76,7 +76,7 @@ customerRouter.post('/login', (req, res) => {
                             "code": "USR_03",
                             "message": "Password is incorrect",
                             "field": "password"
-                          }
+                        }
                     })
                 }
             } else {
@@ -93,7 +93,7 @@ customerRouter.post('/login', (req, res) => {
             }
         })
         .catch(err => {
-            res.status(400).json({ error: err })
+            res.status(500).json({ error: err })
         })
 })
 

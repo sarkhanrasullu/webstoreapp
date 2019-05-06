@@ -17,6 +17,7 @@ export default class CartListDetailsButton extends Component {
 
   render() {
     const modalBody = <CartListDetails/>
+    const {totalPrice} = this.props;
     const modalFooter = (
           <React.Fragment>
                 <MDBBtn color="light-blue" className="badge badge-pill p-3" onClick={this.toggle}>Continue Shopping</MDBBtn>
@@ -29,7 +30,7 @@ export default class CartListDetailsButton extends Component {
     return ( 
       <React.Fragment>
         <div className="text-center">
-              Total price:<span className="text-danger"> $49.93</span>
+              Total price:<span className="text-danger"> {totalPrice}$</span>
               <MDBBtn className="badge badge-pill p-3" color="danger" onClick={this.toggle}>
                   View Details
               </MDBBtn>

@@ -13,3 +13,12 @@ export {
     loadProductsInDepartment,
     loadProductsSearch
 } from './products'
+
+export {
+    login,
+    logout
+} from './customers'
+
+export {
+    loadCarts
+} from './carts'
